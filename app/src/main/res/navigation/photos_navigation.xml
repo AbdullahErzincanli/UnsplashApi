@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/photos_navigation"
+    app:startDestination="@id/splashScreen">
+
+    <fragment
+        android:id="@+id/photoScreen"
+        android:name="com.example.mvvmphotosearcher.view.PhotoScreen"
+        android:label="PhotoScreen" >
+        <action
+            android:id="@+id/action_photoScreen_to_bigPhoto"
+            app:destination="@id/bigPhoto" />
+        <argument
+            android:name="firstTimeOpen"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/bigPhoto"
+        android:name="com.example.mvvmphotosearcher.view.BigPhoto"
+        android:label="BigPhoto" >
+        <action
+            android:id="@+id/action_bigPhoto_to_photoScreen"
+            app:destination="@id/photoScreen" />
+        <argument
+            android:name="Url"
+            app:argType="string"
+            android:defaultValue="non" />
+        <argument
+            android:name="profilName"
+            app:argType="string"
+            android:defaultValue="non" />
+        <argument
+            android:name="profilUrl"
+            app:argType="string"
+            android:defaultValue="non" />
+        <argument
+            android:name="downloadUrl"
+            app:argType="string"
+            android:defaultValue="non" />
+        <action
+            android:id="@+id/action_bigPhoto_to_webPage"
+            app:destination="@id/webPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.example.mvvmphotosearcher.view.SplashScreen"
+        android:label="SplashScreen" >
+        <action
+            android:id="@+id/action_splashScreen_to_photoScreen"
+            app:destination="@id/photoScreen"
+            app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/webPage"
+        android:name="com.example.mvvmphotosearcher.view.WebPage"
+        android:label="WebPage" >
+        <action
+            android:id="@+id/action_webPage_to_bigPhoto"
+            app:destination="@id/bigPhoto" />
+        <argument
+            android:name="webSiteUrl"
+            app:argType="string"
+            android:defaultValue="https://unsplash.com/" />
+    </fragment>
+</navigation>
