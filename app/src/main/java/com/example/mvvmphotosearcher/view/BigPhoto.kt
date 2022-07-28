@@ -65,8 +65,7 @@ var isPhotoLiked:Boolean = false
 
         (activity as AppCompatActivity).supportActionBar?.hide()
 
-        //MobileAds.initialize(this) {}
-        getActivity()?.let { MobileAds.initialize(it) }
+
 
        // mAdView = findViewById(R.id.adView)
 
